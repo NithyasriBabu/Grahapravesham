@@ -41,6 +41,11 @@ const uiCopy = {
       schedule: "Schedule",
       watch: "Watch",
     },
+    labels: {
+      date: "Date:",
+      time: "Time:",
+      days: "Days",
+    },
     sections: {
       scheduleEyebrow: "Schedule",
       scheduleTitle: "Plan your visit",
@@ -56,6 +61,11 @@ const uiCopy = {
       home: "முகப்பு",
       schedule: "நிகழ்ச்சி திட்டம்",
       watch: "நேரலை",
+    },
+    labels: {
+      date: "தேதி:",
+      time: "நேரம்:",
+      days: "நாட்கள்",
     },
     sections: {
       scheduleEyebrow: "நிகழ்ச்சி",
@@ -223,7 +233,7 @@ function setupChooserModal(data) {
   });
 }
 
-function renderSchedule(items, locale, timeZone) {
+function renderSchedule(items, locale, timeZone, labels) {
   const scheduleList = document.getElementById("schedule-list");
   scheduleList.innerHTML = "";
 
@@ -240,7 +250,7 @@ function renderSchedule(items, locale, timeZone) {
       timeStyle: "short",
     }, timeZone);
     const zone = getTimeZoneAbbreviation(item.dateTime, timeZone);
-    time.textContent = `${sharedCopy.date} ${date}\n${sharedCopy.time} ${clock}${zone ? ` ${zone}` : ""}`;
+    time.textContent = `${labels.date} ${date}\n${labels.time} ${clock}${zone ? ` ${zone}` : ""}`;
 
     const content = document.createElement("div");
     const title = document.createElement("h3");
@@ -286,6 +296,7 @@ function applySiteContent(data) {
   const locale = getLocaleForLanguage(language);
   const viewerTimeZone = getViewerTimeZone();
   const timeZone = viewerTimeZone || data.event.timeZone;
+  const labels = uiCopy[language].labels;
 
   document.documentElement.lang = language === "ta" ? "ta" : "en";
   document.title =
@@ -297,12 +308,13 @@ function applySiteContent(data) {
   );
   setText("when-label", sharedCopy.when);
   setText("where-label", sharedCopy.where);
-  setText("days-label", sharedCopy.days);
+  setText("days-label", labels.days);
   setText("calendar-summary", sharedCopy.addToCalendar);
   setText("directions-summary", sharedCopy.directions);
   setText("contact-summary", uiCopy[language].sections.heroContact);
   setText("hero-schedule-link", uiCopy[language].sections.heroSchedule);
   setText("hero-watch-link", uiCopy[language].sections.heroWatch);
+  setText("stream-link", "Open Livestream");
   setText("schedule-eyebrow", uiCopy[language].sections.scheduleEyebrow);
   setText("schedule-title", uiCopy[language].sections.scheduleTitle);
   setText("watch-eyebrow", uiCopy[language].sections.watchEyebrow);
@@ -312,8 +324,8 @@ function applySiteContent(data) {
     "event-title",
     pickLocalized(content.event?.title, language) || data.event.title,
   );
-  const dateLabel = sharedCopy.date;
-  const timeLabel = sharedCopy.time;
+  const dateLabel = labels.date;
+  const timeLabel = labels.time;
   const eventDate = formatEventDate(data.event.dateTime, locale, { dateStyle: "full" }, timeZone);
   const eventTime = formatEventDate(data.event.dateTime, locale, { timeStyle: "short" }, timeZone);
   const eventZone = getTimeZoneAbbreviation(data.event.dateTime, timeZone);
@@ -360,7 +372,7 @@ function applySiteContent(data) {
     };
   });
 
-  renderSchedule(scheduleItems, locale, timeZone);
+  renderSchedule(scheduleItems, locale, timeZone, labels);
   renderStream({
     copy: pickLocalized(content.stream?.copy, language) || data.stream.copy,
     placeholder:
