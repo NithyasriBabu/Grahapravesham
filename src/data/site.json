@@ -1,0 +1,97 @@
+{
+  "seo": {
+    "title": "Grahapravesham | Invitation"
+  },
+  "banner": {
+    "text": "Welcome to our Grahapravesham. Your presence will make the day even more special."
+  },
+  "event": {
+    "type": "Housewarming Celebration",
+    "title": "Our Grahapravesham",
+    "subtitle": "Please join us as we begin this new chapter with prayer, warmth, and your blessings.",
+    "dateTime": "2026-09-05T07:30:00+05:30",
+    "timeZone": "Asia/Kolkata",
+    "timeZoneLabel": "India Standard Time",
+    "locale": "en-IN",
+    "displayFormat": {
+      "dateStyle": "full",
+      "timeStyle": "short"
+    }
+  },
+  "venue": {
+    "name": "New Home",
+    "address": "123 Example Street, Example Nagar, Chennai 600001",
+    "landmark": "Landmark: Near the temple entrance on the east side lane.",
+    "parking": "Please park along the east side lane and keep the driveway clear for elders and close family arrivals.",
+    "googleMapsUrl": "https://maps.google.com/?q=123+Example+Street+Example+Nagar+Chennai+600001",
+    "appleMapsUrl": "https://maps.apple.com/?q=123+Example+Street+Example+Nagar+Chennai+600001"
+  },
+  "rsvp": {
+    "copy": "Please fill in the RSVP form so we can make arrangements for seating and prasadam. Responses stay private in the host sheet.",
+    "formUrl": "https://docs.google.com/forms/d/e/EXAMPLE/viewform",
+    "embedUrl": "https://docs.google.com/forms/d/e/EXAMPLE/viewform?embedded=true"
+  },
+  "stream": {
+    "copy": "If you cannot join in person, you can watch the pooja and blessings here on the day of the function.",
+    "placeholder": "The livestream will appear here once it is ready.",
+    "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+  },
+  "contact": {
+    "hostName": "Host Family",
+    "copy": "For arrival help, directions, or function-day coordination, reach out directly.",
+    "phone": "+11234567890",
+    "whatsapp": "+11234567890",
+    "whatsappMessage": "Hello, I am reaching out about the Grahapravesham."
+  },
+  "calendar": {
+    "uid": "grahapravesham@example.com",
+    "stamp": "20260615T000000Z",
+    "title": "Grahapravesham",
+    "start": "20260905T020000Z",
+    "end": "20260905T060000Z",
+    "details": "Please join us for our Grahapravesham celebration.",
+    "location": "123 Example Street, Example Nagar, Chennai 600001"
+  },
+  "media": {
+    "inviteImage": {
+      "src": "./assets/invite-placeholder.svg",
+      "alt": "Grahapravesham invitation"
+    },
+    "gallery": [
+      {
+        "src": "./assets/gallery-1.svg",
+        "alt": "Home exterior preview"
+      },
+      {
+        "src": "./assets/gallery-2.svg",
+        "alt": "Pooja setup preview"
+      },
+      {
+        "src": "./assets/gallery-3.svg",
+        "alt": "Family welcome preview"
+      }
+    ]
+  },
+  "schedule": [
+    {
+      "time": "7:30 AM",
+      "title": "Ganapathy Pooja",
+      "description": "The morning begins with prayers and the first rituals at the entrance."
+    },
+    {
+      "time": "8:15 AM",
+      "title": "Grahapravesham Rituals",
+      "description": "Main housewarming rituals and blessings with close family and guests."
+    },
+    {
+      "time": "9:30 AM",
+      "title": "Breakfast & Visit",
+      "description": "Guests can walk through the home, spend time together, and enjoy breakfast."
+    }
+  ],
+  "notes": [
+    "Please arrive 10 to 15 minutes early if you want to join the opening pooja.",
+    "Footwear can be left near the entrance.",
+    "If you are delayed, use the contact buttons above for quick directions."
+  ]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Invite placeholder</title>
+  <desc id="desc">Placeholder invitation card for Grahapravesham.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7ef"/>
+      <stop offset="100%" stop-color="#f0d8ba"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect x="50" y="50" width="700" height="900" rx="36" fill="none" stroke="#a0522d" stroke-width="6"/>
+  <text x="400" y="180" text-anchor="middle" fill="#8b3f1f" font-family="Georgia, serif" font-size="34">GRAHAPRAVESHAM</text>
+  <text x="400" y="320" text-anchor="middle" fill="#31231b" font-family="Georgia, serif" font-size="62">Invite Image</text>
+  <text x="400" y="390" text-anchor="middle" fill="#5f4a40" font-family="Georgia, serif" font-size="28">Replace this SVG path in</text>
+  <text x="400" y="430" text-anchor="middle" fill="#5f4a40" font-family="Georgia, serif" font-size="28">src/data/site.json</text>
+  <circle cx="400" cy="620" r="120" fill="#fff7ef" stroke="#a0522d" stroke-width="5"/>
+  <text x="400" y="635" text-anchor="middle" fill="#8b3f1f" font-family="Georgia, serif" font-size="42">OM</text>
+  <text x="400" y="860" text-anchor="middle" fill="#7d5d4b" font-family="Georgia, serif" font-size="24">Add your real invite later</text>
+</svg>

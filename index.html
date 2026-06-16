@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grahapravesham</title>
+    <meta
+      name="description"
+      content="Grahapravesham invitation, venue details, RSVP, and livestream."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#home">Grahapravesham</a>
+        <nav class="nav">
+          <a href="#home">Home</a>
+          <a href="#venue">Venue</a>
+          <a href="#rsvp">RSVP</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#watch">Watch</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="app" class="page-loading" aria-busy="true">
+        <section class="hero section" id="home">
+          <div class="hero-copy">
+            <p class="eyebrow" id="event-type"></p>
+            <h1 id="event-title"></h1>
+            <p class="hero-subtitle" id="event-subtitle"></p>
+            <div class="hero-meta">
+              <div class="meta-card">
+                <span class="meta-label">When</span>
+                <strong id="event-datetime"></strong>
+                <small class="meta-note" id="event-timezone"></small>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Where</span>
+                <strong id="event-location"></strong>
+              </div>
+            </div>
+            <div class="countdown" aria-live="polite">
+              <div class="countdown-item">
+                <span id="days">00</span>
+                <small>Days</small>
+              </div>
+              <div class="countdown-item">
+                <span id="hours">00</span>
+                <small>Hours</small>
+              </div>
+              <div class="countdown-item">
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+              </div>
+              <div class="countdown-item">
+                <span id="seconds">00</span>
+                <small>Seconds</small>
+              </div>
+            </div>
+            <div class="action-row">
+              <a class="button primary" id="calendar-link" href="#" download="grahapravesham.ics">Add to Calendar</a>
+              <a class="button secondary" href="#rsvp">RSVP</a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="invite-frame">
+              <img id="invite-image" alt="Invitation" />
+            </div>
+            <div class="banner-wrap">
+              <div class="banner-track">
+                <p id="banner-text"></p>
+                <p id="banner-text-clone" aria-hidden="true"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery section">
+          <div class="section-heading">
+            <p class="eyebrow">Memories</p>
+            <h2>Moments around the homecoming</h2>
+          </div>
+          <div class="gallery-grid" id="gallery-grid"></div>
+        </section>
+
+        <section class="venue section" id="venue">
+          <div class="section-heading">
+            <p class="eyebrow">Venue</p>
+            <h2>Join us at the new home</h2>
+          </div>
+          <div class="card-grid">
+            <article class="panel">
+              <h3 id="venue-name"></h3>
+              <p id="venue-address"></p>
+              <p id="venue-landmark" class="supporting"></p>
+              <div class="action-row">
+                <a class="button primary" id="google-maps-link" href="#" target="_blank" rel="noreferrer">Google Maps</a>
+                <a class="button secondary" id="apple-maps-link" href="#" target="_blank" rel="noreferrer">Apple Maps</a>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Parking</h3>
+              <p id="parking-instructions"></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="rsvp">
+          <div class="section-heading">
+            <p class="eyebrow">RSVP</p>
+            <h2>Let us know you’re coming</h2>
+          </div>
+          <div class="card-grid">
+            <article class="panel">
+              <p id="rsvp-copy"></p>
+              <div class="action-row">
+                <a class="button primary" id="rsvp-link" href="#" target="_blank" rel="noreferrer">Open RSVP Form</a>
+              </div>
+            </article>
+            <article class="panel panel-embed">
+              <iframe
+                id="rsvp-embed"
+                title="RSVP Form"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="schedule">
+          <div class="section-heading">
+            <p class="eyebrow">Schedule</p>
+            <h2>Plan your visit</h2>
+          </div>
+          <div class="timeline" id="schedule-list"></div>
+        </section>
+
+        <section class="section" id="watch">
+          <div class="section-heading">
+            <p class="eyebrow">Livestream</p>
+            <h2>Watch from wherever you are</h2>
+          </div>
+          <div class="watch-grid">
+            <article class="panel">
+              <p id="stream-copy"></p>
+              <div class="stream-placeholder" id="stream-placeholder"></div>
+            </article>
+            <article class="panel panel-embed">
+              <iframe
+                id="stream-embed"
+                title="Livestream"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>Reach us quickly on the day</h2>
+          </div>
+          <div class="card-grid">
+            <article class="panel">
+              <h3 id="host-name"></h3>
+              <p id="host-copy"></p>
+              <div class="action-row">
+                <a class="button primary" id="call-link" href="#">Call Host</a>
+                <a class="button secondary" id="whatsapp-link" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Event notes</h3>
+              <ul class="notes-list" id="event-notes"></ul>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
