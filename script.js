@@ -11,17 +11,27 @@ const sharedCopy = {
   where: "Where",
   date: "Date:",
   time: "Time:",
-  timezonePrefix: "Your local time zone:",
-  timezoneFallback: "Event time zone:",
   days: "Days",
   addToCalendar: "Add to Calendar",
-  googleCalendar: "Google Calendar",
-  appleCalendar: "Apple Calendar",
   directions: "Directions",
-  googleMaps: "Google Maps",
-  appleMaps: "Apple Maps",
-  callHost: "Call Host",
-  whatsapp: "WhatsApp",
+};
+
+const chooserModalContent = {
+  calendar: {
+    title: "Add to Calendar",
+    primary: { id: "chooser-primary-link", label: "Google Calendar" },
+    secondary: { id: "chooser-secondary-link", label: "Apple Calendar" },
+  },
+  directions: {
+    title: "Directions",
+    primary: { id: "chooser-primary-link", label: "Google Maps" },
+    secondary: { id: "chooser-secondary-link", label: "Apple Maps" },
+  },
+  contact: {
+    title: "Contact Host",
+    primary: { id: "chooser-primary-link", label: "Call Host" },
+    secondary: { id: "chooser-secondary-link", label: "WhatsApp" },
+  },
 };
 
 const uiCopy = {
@@ -30,16 +40,15 @@ const uiCopy = {
       home: "Home",
       schedule: "Schedule",
       watch: "Watch",
-      contact: "Contact",
     },
     sections: {
       scheduleEyebrow: "Schedule",
       scheduleTitle: "Plan your visit",
+      heroSchedule: "View Agenda",
+      heroWatch: "Watch Livestream",
+      heroContact: "Contact Host",
       watchEyebrow: "Livestream",
       watchTitle: "Watch from wherever you are",
-      contactEyebrow: "Contact",
-      contactTitle: "Reach us quickly on the day",
-      notesTitle: "Event notes",
     },
   },
   ta: {
@@ -47,16 +56,15 @@ const uiCopy = {
       home: "முகப்பு",
       schedule: "நிகழ்ச்சி திட்டம்",
       watch: "நேரலை",
-      contact: "தொடர்பு",
     },
     sections: {
       scheduleEyebrow: "நிகழ்ச்சி",
       scheduleTitle: "உங்கள் வருகையைத் திட்டமிடுங்கள்",
+      heroSchedule: "நிகழ்ச்சி திட்டம்",
+      heroWatch: "நேரலையைப் பார்க்கவும்",
+      heroContact: "தொடர்பு கொள்ளுங்கள்",
       watchEyebrow: "நேரலை",
       watchTitle: "நீங்கள் எங்கிருந்தாலும் பார்க்கலாம்",
-      contactEyebrow: "தொடர்பு",
-      contactTitle: "நிகழ்ச்சி நாளில் விரைவாக எங்களைத் தொடர்புகொள்ளுங்கள்",
-      notesTitle: "நிகழ்ச்சி குறிப்புகள்",
     },
   },
 };
@@ -102,6 +110,15 @@ function getViewerTimeZone() {
   return Intl.DateTimeFormat().resolvedOptions().timeZone || "";
 }
 
+function getTimeZoneAbbreviation(dateTime, timeZone) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    timeZoneName: "short",
+  }).formatToParts(new Date(dateTime));
+
+  return parts.find((part) => part.type === "timeZoneName")?.value || "";
+}
+
 function buildGoogleCalendarUrl(calendar) {
   const params = new URLSearchParams({
     action: "TEMPLATE",
@@ -140,6 +157,72 @@ function setLink(id, href) {
   }
 }
 
+function setupChooserModal(data) {
+  const dialog = document.getElementById("chooser-dialog");
+  const title = document.getElementById("chooser-dialog-title");
+  const primaryLink = document.getElementById("chooser-primary-link");
+  const secondaryLink = document.getElementById("chooser-secondary-link");
+
+  if (!dialog || !title || !primaryLink || !secondaryLink) {
+    return;
+  }
+
+  const configureModal = (kind) => {
+    const content = chooserModalContent[kind];
+    if (!content) {
+      return;
+    }
+
+    title.textContent = content.title;
+    primaryLink.textContent = content.primary.label;
+    secondaryLink.textContent = content.secondary.label;
+
+    if (kind === "calendar") {
+      setLink(primaryLink.id, buildGoogleCalendarUrl(data.calendar));
+      setLink(secondaryLink.id, buildWebcalUrl("./calendar.ics"));
+    } else {
+      if (kind === "contact") {
+        setLink(primaryLink.id, `tel:${data.contact.phone}`);
+        setLink(
+          secondaryLink.id,
+          buildWhatsappLink(data.contact.whatsapp, data.contact.whatsappMessage),
+        );
+        return;
+      }
+      setLink(primaryLink.id, data.venue.googleMapsUrl);
+      setLink(secondaryLink.id, data.venue.appleMapsUrl);
+    }
+  };
+
+  document.querySelectorAll(".chooser-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const kind =
+        trigger.id === "calendar-summary"
+          ? "calendar"
+          : trigger.id === "directions-summary"
+            ? "directions"
+            : "contact";
+      configureModal(kind);
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      }
+    });
+  });
+
+  dialog.addEventListener("click", (event) => {
+    const rect = dialog.getBoundingClientRect();
+    const clickedOutside =
+      event.clientX < rect.left ||
+      event.clientX > rect.right ||
+      event.clientY < rect.top ||
+      event.clientY > rect.bottom;
+
+    if (clickedOutside) {
+      dialog.close();
+    }
+  });
+}
+
 function renderSchedule(items, locale, timeZone) {
   const scheduleList = document.getElementById("schedule-list");
   scheduleList.innerHTML = "";
@@ -156,7 +239,8 @@ function renderSchedule(items, locale, timeZone) {
     const clock = formatEventDate(item.dateTime, locale, {
       timeStyle: "short",
     }, timeZone);
-    time.textContent = `${sharedCopy.date} ${date}\n${sharedCopy.time} ${clock}`;
+    const zone = getTimeZoneAbbreviation(item.dateTime, timeZone);
+    time.textContent = `${sharedCopy.date} ${date}\n${sharedCopy.time} ${clock}${zone ? ` ${zone}` : ""}`;
 
     const content = document.createElement("div");
     const title = document.createElement("h3");
@@ -168,17 +252,6 @@ function renderSchedule(items, locale, timeZone) {
     content.append(title, description);
     wrapper.append(time, content);
     scheduleList.appendChild(wrapper);
-  });
-}
-
-function renderNotes(notes) {
-  const list = document.getElementById("event-notes");
-  list.innerHTML = "";
-
-  notes.forEach((note) => {
-    const item = document.createElement("li");
-    item.textContent = note;
-    list.appendChild(item);
   });
 }
 
@@ -218,24 +291,22 @@ function applySiteContent(data) {
   document.title =
     pickLocalized(content.seo?.title, language) || data.seo.title;
 
-  setText("brand-link", sharedCopy.brand);
-  setText("nav-home", uiCopy[language].nav.home);
-  setText("nav-schedule", uiCopy[language].nav.schedule);
-  setText("nav-watch", uiCopy[language].nav.watch);
-  setText("nav-contact", uiCopy[language].nav.contact);
-
+  setText(
+    "brand-link",
+    pickLocalized(content.brand, language) || sharedCopy.brand,
+  );
   setText("when-label", sharedCopy.when);
   setText("where-label", sharedCopy.where);
   setText("days-label", sharedCopy.days);
   setText("calendar-summary", sharedCopy.addToCalendar);
   setText("directions-summary", sharedCopy.directions);
+  setText("contact-summary", uiCopy[language].sections.heroContact);
+  setText("hero-schedule-link", uiCopy[language].sections.heroSchedule);
+  setText("hero-watch-link", uiCopy[language].sections.heroWatch);
   setText("schedule-eyebrow", uiCopy[language].sections.scheduleEyebrow);
   setText("schedule-title", uiCopy[language].sections.scheduleTitle);
   setText("watch-eyebrow", uiCopy[language].sections.watchEyebrow);
   setText("watch-title", uiCopy[language].sections.watchTitle);
-  setText("contact-eyebrow", uiCopy[language].sections.contactEyebrow);
-  setText("contact-title", uiCopy[language].sections.contactTitle);
-  setText("notes-title", uiCopy[language].sections.notesTitle);
 
   setText(
     "event-title",
@@ -245,16 +316,11 @@ function applySiteContent(data) {
   const timeLabel = sharedCopy.time;
   const eventDate = formatEventDate(data.event.dateTime, locale, { dateStyle: "full" }, timeZone);
   const eventTime = formatEventDate(data.event.dateTime, locale, { timeStyle: "short" }, timeZone);
-  setText("event-datetime", `${dateLabel} ${eventDate}\n${timeLabel} ${eventTime}`);
+  const eventZone = getTimeZoneAbbreviation(data.event.dateTime, timeZone);
+  setText("event-datetime", `${dateLabel} ${eventDate}\n${timeLabel} ${eventTime}${eventZone ? ` ${eventZone}` : ""}`);
   setText(
     "event-subtitle",
     pickLocalized(content.event?.subtitle, language) || data.event.subtitle,
-  );
-  setText(
-    "event-timezone",
-    viewerTimeZone
-    ? `${sharedCopy.timezonePrefix} ${viewerTimeZone}`
-    : `${sharedCopy.timezoneFallback} ${pickLocalized(content.event?.timeZoneLabel, language) || data.event.timeZoneLabel}`,
   );
   setText(
     "event-location",
@@ -277,43 +343,6 @@ function applySiteContent(data) {
 
   setText("parking-inline", pickLocalized(content.venue?.parking, language) || data.venue.parking);
 
-  setText(
-    "host-name",
-    pickLocalized(content.contact?.hostName, language) || data.contact.hostName,
-  );
-  setText(
-    "host-copy",
-    pickLocalized(content.contact?.copy, language) || data.contact.copy,
-  );
-
-  setText("google-calendar-link", sharedCopy.googleCalendar);
-  setText("apple-calendar-link", sharedCopy.appleCalendar);
-  setText("google-maps-link", sharedCopy.googleMaps);
-  setText("apple-maps-link", sharedCopy.appleMaps);
-  setText("call-link", sharedCopy.callHost);
-  setText("whatsapp-link", sharedCopy.whatsapp);
-
-  const calendar = {
-    ...data.calendar,
-    title:
-      pickLocalized(content.calendar?.title, language) || data.calendar.title,
-    details:
-      pickLocalized(content.calendar?.details, language) ||
-      data.calendar.details,
-    location:
-      pickLocalized(content.calendar?.location, language) ||
-      data.calendar.location,
-  };
-  setLink("google-calendar-link", buildGoogleCalendarUrl(calendar));
-  setLink("apple-calendar-link", buildWebcalUrl("./calendar.ics"));
-  setLink("call-link", `tel:${data.contact.phone}`);
-  setLink(
-    "whatsapp-link",
-    buildWhatsappLink(data.contact.whatsapp, data.contact.whatsappMessage),
-  );
-  setLink("google-maps-link", data.venue.googleMapsUrl);
-  setLink("apple-maps-link", data.venue.appleMapsUrl);
-
   const languageButtons = document.querySelectorAll(".lang-btn");
   languageButtons.forEach((button) => {
     const active = button.dataset.lang === language;
@@ -332,12 +361,6 @@ function applySiteContent(data) {
   });
 
   renderSchedule(scheduleItems, locale, timeZone);
-  renderNotes(
-    (content.notes ?? data.notes).map((note, index) => {
-      const translated = content.notes?.[index];
-      return pickLocalized(translated, language) || note;
-    }),
-  );
   renderStream({
     copy: pickLocalized(content.stream?.copy, language) || data.stream.copy,
     placeholder:
@@ -358,6 +381,7 @@ async function init() {
   try {
     const data = await loadSiteData();
     applySiteContent(data);
+    setupChooserModal(data);
     document.querySelectorAll(".lang-btn").forEach((button) => {
       button.addEventListener("click", () =>
         setLanguage(button.dataset.lang, data),

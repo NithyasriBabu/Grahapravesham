@@ -22,48 +22,31 @@
         <span id="days">00</span>
         <small id="days-label">Days</small>
       </div>
-      <header class="topbar">
-        <a class="brand" id="brand-link" href="#home">Nithyasri & Naveen Kumar's Grahapravesham</a>
-        <nav class="nav">
-          <a id="nav-home" href="#home">Home</a>
-          <a id="nav-schedule" href="#schedule">Schedule</a>
-          <a id="nav-watch" href="#watch">Watch</a>
-          <a id="nav-contact" href="#contact">Contact</a>
-        </nav>
-        <div class="lang-switch" role="group" aria-label="Language selector">
-          <button type="button" class="lang-btn" data-lang="en">English</button>
-          <button type="button" class="lang-btn" data-lang="ta">தமிழ்</button>
-        </div>
-      </header>
+      <div class="lang-switch" role="group" aria-label="Language selector">
+        <button type="button" class="lang-btn" data-lang="en">English</button>
+        <button type="button" class="lang-btn" data-lang="ta">தமிழ்</button>
+      </div>
 
       <main id="app" class="page-loading" aria-busy="true">
         <section class="hero section" id="home">
           <div class="hero-copy">
             <h1 id="event-title"></h1>
             <p class="hero-subtitle" id="event-subtitle"></p>
+            <div class="action-row hero-actions">
+              <a class="button primary" href="#schedule" id="hero-schedule-link">View Agenda</a>
+              <a class="button secondary" href="#watch" id="hero-watch-link">Watch Livestream</a>
+              <button class="button secondary chooser-trigger" id="contact-summary" type="button">Contact Host</button>
+            </div>
             <div class="hero-meta">
               <div class="meta-card">
                 <span class="meta-label" id="when-label">When</span>
                 <strong id="event-datetime"></strong>
-                <small class="meta-note" id="event-timezone"></small>
-                <details class="chooser">
-                  <summary class="button secondary button-small" id="calendar-summary">Add to Calendar</summary>
-                  <div class="chooser-panel">
-                    <a class="button primary button-small" id="google-calendar-link" href="#" target="_blank" rel="noreferrer">Google Calendar</a>
-                    <a class="button secondary button-small" id="apple-calendar-link" href="#" target="_blank" rel="noreferrer">Apple Calendar</a>
-                  </div>
-                </details>
+                <button class="button secondary button-small chooser-trigger" id="calendar-summary" type="button">Add to Calendar</button>
               </div>
               <div class="meta-card">
                 <span class="meta-label" id="where-label">Where</span>
                 <strong id="event-location"></strong>
-                <details class="chooser">
-                  <summary class="button secondary button-small" id="directions-summary">Directions</summary>
-                  <div class="chooser-panel">
-                    <a class="button primary button-small" id="google-maps-link" href="#" target="_blank" rel="noreferrer">Google Maps</a>
-                    <a class="button secondary button-small" id="apple-maps-link" href="#" target="_blank" rel="noreferrer">Apple Maps</a>
-                  </div>
-                </details>
+                <button class="button secondary button-small chooser-trigger" id="directions-summary" type="button">Directions</button>
               </div>
             </div>
             <p class="parking-inline" id="parking-inline"></p>
@@ -73,27 +56,6 @@
             <div class="invite-frame">
               <img id="invite-image" alt="Invitation" />
             </div>
-          </div>
-        </section>
-
-        <section class="section" id="contact">
-          <div class="section-heading">
-            <p class="eyebrow" id="contact-eyebrow">Contact</p>
-            <h2 id="contact-title">Reach us quickly on the day</h2>
-          </div>
-          <div class="card-grid">
-            <article class="panel">
-              <h3 id="host-name"></h3>
-              <p id="host-copy"></p>
-              <div class="action-row">
-                <a class="button primary" id="call-link" href="#">Call Host</a>
-                <a class="button secondary" id="whatsapp-link" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
-              </div>
-            </article>
-            <article class="panel">
-              <h3 id="notes-title">Event notes</h3>
-              <ul class="notes-list" id="event-notes"></ul>
-            </article>
           </div>
         </section>
 
@@ -127,6 +89,19 @@
         </section>
       </main>
     </div>
+
+    <dialog class="chooser-dialog" id="chooser-dialog" aria-labelledby="chooser-dialog-title">
+      <form method="dialog" class="chooser-dialog-card">
+        <div class="chooser-dialog-head">
+          <h3 id="chooser-dialog-title">Add to Calendar</h3>
+          <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+        </div>
+        <div class="chooser-panel">
+          <a class="button primary button-small" id="chooser-primary-link" href="#" target="_blank" rel="noreferrer">Google Calendar</a>
+          <a class="button secondary button-small" id="chooser-secondary-link" href="#" target="_blank" rel="noreferrer">Apple Calendar</a>
+        </div>
+      </form>
+    </dialog>
 
     <script src="./script.js" type="module"></script>
   </body>
