@@ -16,6 +16,10 @@ function formatEventDate(dateTime, locale, options, timeZone) {
   return new Intl.DateTimeFormat(locale, { ...options, timeZone }).format(new Date(dateTime));
 }
 
+function getViewerTimeZone() {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+}
+
 function buildCalendarFile(calendar) {
   const lines = [
     "BEGIN:VCALENDAR",
@@ -68,7 +72,7 @@ function renderGallery(images) {
   });
 }
 
-function renderSchedule(items) {
+function renderSchedule(items, locale, timeZone) {
   const scheduleList = document.getElementById("schedule-list");
   scheduleList.innerHTML = "";
 
@@ -78,7 +82,7 @@ function renderSchedule(items) {
 
     const time = document.createElement("div");
     time.className = "timeline-time";
-    time.textContent = item.time;
+    time.textContent = formatEventDate(item.dateTime, locale, { hour: "numeric", minute: "2-digit" }, timeZone);
 
     const content = document.createElement("div");
     const title = document.createElement("h3");
@@ -145,6 +149,8 @@ function startCountdown(dateTime) {
 
 function applySiteContent(data) {
   document.title = data.seo.title;
+  const viewerTimeZone = getViewerTimeZone();
+  const timeZone = viewerTimeZone || data.event.timeZone;
 
   setText("event-type", data.event.type);
   setText("event-title", data.event.title);
@@ -155,10 +161,10 @@ function applySiteContent(data) {
       data.event.dateTime,
       data.event.locale,
       data.event.displayFormat,
-      data.event.timeZone,
+      timeZone,
     ),
   );
-  setText("event-timezone", data.event.timeZoneLabel);
+  setText("event-timezone", viewerTimeZone ? `Your local time zone: ${viewerTimeZone}` : data.event.timeZoneLabel);
   setText("event-location", data.venue.name);
   setText("banner-text", data.banner.text);
   setText("banner-text-clone", data.banner.text);
@@ -182,7 +188,7 @@ function applySiteContent(data) {
   setLink("whatsapp-link", buildWhatsappLink(data.contact.whatsapp, data.contact.whatsappMessage));
 
   renderGallery(data.media.gallery);
-  renderSchedule(data.schedule);
+  renderSchedule(data.schedule, data.event.locale, timeZone);
   renderNotes(data.notes);
   renderRsvp(data.rsvp);
   renderStream(data.stream);
