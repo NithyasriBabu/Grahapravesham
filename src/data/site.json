@@ -6,10 +6,9 @@
     "text": "Welcome to our Grahapravesham. Your presence will make the day even more special."
   },
   "event": {
-    "type": "Housewarming Celebration",
-    "title": "Our Grahapravesham",
+    "title": "Nithyasri & Naveen Kumar's Grahapravesham",
     "subtitle": "Please join us as we begin this new chapter with prayer, warmth, and your blessings.",
-    "dateTime": "2026-09-05T07:30:00-04:00",
+    "dateTime": "2026-08-03T07:30:00-04:00",
     "timeZone": "America/New_York",
     "timeZoneLabel": "Eastern Time (USA)",
     "locale": "en-US",
@@ -19,17 +18,12 @@
     }
   },
   "venue": {
-    "name": "New Home",
-    "address": "Norwalk, CT 06851",
-    "landmark": "Landmark: Near the temple entrance on the east side lane.",
-    "parking": "Please park along the east side lane and keep the driveway clear for elders and close family arrivals.",
-    "googleMapsUrl": "https://maps.google.com/?q=Norwalk,+CT+06851",
-    "appleMapsUrl": "https://maps.apple.com/?q=Norwalk,+CT+06851"
-  },
-  "rsvp": {
-    "copy": "Please fill in the RSVP form so we can make arrangements for seating and prasadam. Responses stay private in the host sheet.",
-    "formUrl": "https://docs.google.com/forms/d/e/EXAMPLE/viewform",
-    "embedUrl": "https://docs.google.com/forms/d/e/EXAMPLE/viewform?embedded=true"
+    "name": "Sri Meenakshi",
+    "address": "130 Main Street, #E4, Norwalk, CT 06851",
+    "parking": "Guest parking on site is limited. Please use roadside parking or the nearby shopping complex.",
+    "googleMapsUrl": "https://maps.app.goo.gl/eXeHiWPZSFXVEoEh6",
+    "appleMapsUrl": "https://maps.apple.com/?address=130%20Main%20Street%2C%20%23E4%2C%20Norwalk%2C%20CT%2006851&ll=41.1238796541452,-73.4152970738778&q=Sri%20Meenakshi",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d182.62937795439885!2d-73.4152970738778!3d41.1238796541452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1781578852204!5m2!1sen!2sus"
   },
   "stream": {
     "copy": "If you cannot join in person, you can watch the pooja and blessings here on the day of the function.",
@@ -47,44 +41,30 @@
     "uid": "grahapravesham@example.com",
     "stamp": "20260615T000000Z",
     "title": "Grahapravesham",
-    "start": "20260905T113000Z",
-    "end": "20260905T153000Z",
+    "start": "20260803T113000Z",
+    "end": "20260803T153000Z",
     "details": "Please join us for our Grahapravesham celebration.",
-    "location": "Norwalk, CT 06851"
+    "location": "130 Main Street, #E4, Norwalk, CT 06851"
   },
   "media": {
     "inviteImage": {
-      "src": "./assets/invite-placeholder.svg",
+      "src": "./assets/invite-hero.png",
       "alt": "Grahapravesham invitation"
-    },
-    "gallery": [
-      {
-        "src": "./assets/gallery-1.svg",
-        "alt": "Home exterior preview"
-      },
-      {
-        "src": "./assets/gallery-2.svg",
-        "alt": "Pooja setup preview"
-      },
-      {
-        "src": "./assets/gallery-3.svg",
-        "alt": "Family welcome preview"
-      }
-    ]
+    }
   },
   "schedule": [
     {
-      "dateTime": "2026-09-05T07:30:00-04:00",
+      "dateTime": "2026-08-03T07:30:00-04:00",
       "title": "Ganapathy Pooja",
       "description": "The morning begins with prayers and the first rituals at the entrance."
     },
     {
-      "dateTime": "2026-09-05T08:15:00-04:00",
+      "dateTime": "2026-08-03T08:15:00-04:00",
       "title": "Grahapravesham Rituals",
       "description": "Main housewarming rituals and blessings with close family and guests."
     },
     {
-      "dateTime": "2026-09-05T09:30:00-04:00",
+      "dateTime": "2026-08-03T09:30:00-04:00",
       "title": "Breakfast & Visit",
       "description": "Guests can walk through the home, spend time together, and enjoy breakfast."
     }
@@ -93,5 +73,60 @@
     "Please arrive 10 to 15 minutes early if you want to join the opening pooja.",
     "Footwear can be left near the entrance.",
     "If you are delayed, use the contact buttons above for quick directions."
-  ]
+  ],
+  "i18n": {
+    "ta": {
+      "seo": {
+        "title": "கிரஹப்பிரவேசம் | அழைப்பு"
+      },
+      "banner": {
+        "text": "எங்கள் கிரகப்பிரவேசத்திற்கு அன்புடன் வரவேற்கிறோம். உங்கள் வருகை இந்த நாளை மேலும் சிறப்பாக்கும்."
+      },
+      "event": {
+        "title": "நித்யஸ்ரீ & நவீன் குமாரின் கிரஹப்பிரவேசம்",
+        "subtitle": "பிரார்த்தனை, இனிமை, மற்றும் உங்கள் ஆசீர்வாதங்களுடன் இந்த புதிய அத்தியாயத்தைத் தொடங்க எங்களுடன் சேருங்கள்.",
+        "timeZoneLabel": "உள்ளூர் நேர மண்டலம்"
+      },
+      "venue": {
+        "name": "ஸ்ரீ மீனாட்சி",
+        "address": "130 Main Street, #E4, Norwalk, CT 06851",
+        "parking": "தயவுசெய்து கிழக்கு பக்கச் சாலையில் வாகனங்களை நிறுத்தவும்; மூத்தோர் மற்றும் நெருக்கமான குடும்பத்தினர் வருகைக்கு டிரைவ்வேயை காலியாக வைத்திருக்கவும்."
+      },
+      "stream": {
+        "copy": "நேரில் கலந்து கொள்ள முடியாவிட்டால், நிகழும் நாளில் இங்கே பூஜை மற்றும் ஆசீர்வாதங்களை பார்க்கலாம்.",
+        "placeholder": "லைவ்ஸ்ட்ரீம் தயாரானதும் இங்கே தோன்றும்."
+      },
+      "contact": {
+        "hostName": "ஹோஸ்ட் குடும்பம்",
+        "copy": "வந்துசேரும் உதவி, வழிமுறைகள், அல்லது நிகழ்ச்சி நாள் ஒருங்கிணைப்புக்காக நேரடியாக தொடர்புகொள்ளுங்கள்."
+      },
+      "calendar": {
+        "title": "கிரஹப்பிரவேசம்",
+        "details": "எங்கள் கிரஹப்பிரவேச விழாவிற்கு அன்புடன் வரவேற்கிறோம்.",
+        "location": "130 Main Street, #E4, Norwalk, CT 06851"
+      },
+      "media": {
+        "inviteImageAlt": "கிரகப்பிரவேச அழைப்பு"
+      },
+      "schedule": [
+        {
+          "title": "கணபதி பூஜை",
+          "description": "காலை பிரார்த்தனைகளும் நுழைவாயிலில் நடைபெறும் முதல் சடங்குகளும்."
+        },
+        {
+          "title": "கிரகப்பிரவேச சடங்குகள்",
+          "description": "முக்கிய கிரகப்பிரவேச சடங்குகளும் நெருங்கிய குடும்பத்தினரின் ஆசீர்வாதங்களும்."
+        },
+        {
+          "title": "காலை உணவு & சந்திப்பு",
+          "description": "விருந்தினர்கள் வீட்டைப் பார்வையிட்டு, ஒன்றாக நேரம் கழித்து, காலை உணவை அனுபவிக்கலாம்."
+        }
+      ],
+      "notes": [
+        "தொடக்க பூஜையில் சேர விரும்பினால் 10 முதல் 15 நிமிடங்கள் முன்பே வரவும்.",
+        "காலணிகளை நுழைவாயிலருகே வைக்கலாம்.",
+        "தாமதமாக வந்தால், விரைவு வழிமுறைகளுக்காக மேலுள்ள தொடர்பு பொத்தான்களை பயன்படுத்தவும்."
+      ]
+    }
+  }
 }

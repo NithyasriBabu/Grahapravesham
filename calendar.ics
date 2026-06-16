@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Grahapravesham//Event Calendar//EN
+BEGIN:VEVENT
+UID:grahapravesham@example.com
+DTSTAMP:20260615T000000Z
+DTSTART:20260803T113000Z
+DTEND:20260803T153000Z
+SUMMARY:Grahapravesham
+DESCRIPTION:Please join us for our Grahapravesham celebration.
+LOCATION:Norwalk, CT 06851
+END:VEVENT
+END:VCALENDAR

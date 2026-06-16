@@ -1,170 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+  <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grahapravesham</title>
     <meta
       name="description"
-      content="Grahapravesham invitation, venue details, RSVP, and livestream."
+      content="Grahapravesham invitation, schedule, livestream, and contact details."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="site-shell">
+      <div class="banner-wrap page-banner">
+        <div class="banner-track">
+          <p id="banner-text"></p>
+          <p id="banner-text-clone" aria-hidden="true"></p>
+        </div>
+      </div>
+      <div class="countdown-float" aria-live="polite">
+        <span id="days">00</span>
+        <small id="days-label">Days</small>
+      </div>
       <header class="topbar">
-        <a class="brand" href="#home">Grahapravesham</a>
+        <a class="brand" id="brand-link" href="#home">Nithyasri & Naveen Kumar's Grahapravesham</a>
         <nav class="nav">
-          <a href="#home">Home</a>
-          <a href="#venue">Venue</a>
-          <a href="#rsvp">RSVP</a>
-          <a href="#schedule">Schedule</a>
-          <a href="#watch">Watch</a>
-          <a href="#contact">Contact</a>
+          <a id="nav-home" href="#home">Home</a>
+          <a id="nav-schedule" href="#schedule">Schedule</a>
+          <a id="nav-watch" href="#watch">Watch</a>
+          <a id="nav-contact" href="#contact">Contact</a>
         </nav>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="ta">தமிழ்</button>
+        </div>
       </header>
 
       <main id="app" class="page-loading" aria-busy="true">
         <section class="hero section" id="home">
           <div class="hero-copy">
-            <p class="eyebrow" id="event-type"></p>
             <h1 id="event-title"></h1>
             <p class="hero-subtitle" id="event-subtitle"></p>
             <div class="hero-meta">
               <div class="meta-card">
-                <span class="meta-label">When</span>
+                <span class="meta-label" id="when-label">When</span>
                 <strong id="event-datetime"></strong>
                 <small class="meta-note" id="event-timezone"></small>
+                <details class="chooser">
+                  <summary class="button secondary button-small" id="calendar-summary">Add to Calendar</summary>
+                  <div class="chooser-panel">
+                    <a class="button primary button-small" id="google-calendar-link" href="#" target="_blank" rel="noreferrer">Google Calendar</a>
+                    <a class="button secondary button-small" id="apple-calendar-link" href="#" target="_blank" rel="noreferrer">Apple Calendar</a>
+                  </div>
+                </details>
               </div>
               <div class="meta-card">
-                <span class="meta-label">Where</span>
+                <span class="meta-label" id="where-label">Where</span>
                 <strong id="event-location"></strong>
+                <details class="chooser">
+                  <summary class="button secondary button-small" id="directions-summary">Directions</summary>
+                  <div class="chooser-panel">
+                    <a class="button primary button-small" id="google-maps-link" href="#" target="_blank" rel="noreferrer">Google Maps</a>
+                    <a class="button secondary button-small" id="apple-maps-link" href="#" target="_blank" rel="noreferrer">Apple Maps</a>
+                  </div>
+                </details>
               </div>
             </div>
-            <div class="countdown" aria-live="polite">
-              <div class="countdown-item">
-                <span id="days">00</span>
-                <small>Days</small>
-              </div>
-              <div class="countdown-item">
-                <span id="hours">00</span>
-                <small>Hours</small>
-              </div>
-              <div class="countdown-item">
-                <span id="minutes">00</span>
-                <small>Minutes</small>
-              </div>
-              <div class="countdown-item">
-                <span id="seconds">00</span>
-                <small>Seconds</small>
-              </div>
-            </div>
-            <div class="action-row">
-              <a class="button primary" id="calendar-link" href="#" download="grahapravesham.ics">Add to Calendar</a>
-              <a class="button secondary" href="#rsvp">RSVP</a>
-            </div>
+            <p class="parking-inline" id="parking-inline"></p>
           </div>
 
           <div class="hero-visual">
             <div class="invite-frame">
               <img id="invite-image" alt="Invitation" />
             </div>
-            <div class="banner-wrap">
-              <div class="banner-track">
-                <p id="banner-text"></p>
-                <p id="banner-text-clone" aria-hidden="true"></p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="gallery section">
-          <div class="section-heading">
-            <p class="eyebrow">Memories</p>
-            <h2>Moments around the homecoming</h2>
-          </div>
-          <div class="gallery-grid" id="gallery-grid"></div>
-        </section>
-
-        <section class="venue section" id="venue">
-          <div class="section-heading">
-            <p class="eyebrow">Venue</p>
-            <h2>Join us at the new home</h2>
-          </div>
-          <div class="card-grid">
-            <article class="panel">
-              <h3 id="venue-name"></h3>
-              <p id="venue-address"></p>
-              <p id="venue-landmark" class="supporting"></p>
-              <div class="action-row">
-                <a class="button primary" id="google-maps-link" href="#" target="_blank" rel="noreferrer">Google Maps</a>
-                <a class="button secondary" id="apple-maps-link" href="#" target="_blank" rel="noreferrer">Apple Maps</a>
-              </div>
-            </article>
-            <article class="panel">
-              <h3>Parking</h3>
-              <p id="parking-instructions"></p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="rsvp">
-          <div class="section-heading">
-            <p class="eyebrow">RSVP</p>
-            <h2>Let us know you’re coming</h2>
-          </div>
-          <div class="card-grid">
-            <article class="panel">
-              <p id="rsvp-copy"></p>
-              <div class="action-row">
-                <a class="button primary" id="rsvp-link" href="#" target="_blank" rel="noreferrer">Open RSVP Form</a>
-              </div>
-            </article>
-            <article class="panel panel-embed">
-              <iframe
-                id="rsvp-embed"
-                title="RSVP Form"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="schedule">
-          <div class="section-heading">
-            <p class="eyebrow">Schedule</p>
-            <h2>Plan your visit</h2>
-          </div>
-          <div class="timeline" id="schedule-list"></div>
-        </section>
-
-        <section class="section" id="watch">
-          <div class="section-heading">
-            <p class="eyebrow">Livestream</p>
-            <h2>Watch from wherever you are</h2>
-          </div>
-          <div class="watch-grid">
-            <article class="panel">
-              <p id="stream-copy"></p>
-              <div class="stream-placeholder" id="stream-placeholder"></div>
-            </article>
-            <article class="panel panel-embed">
-              <iframe
-                id="stream-embed"
-                title="Livestream"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </article>
           </div>
         </section>
 
         <section class="section" id="contact">
           <div class="section-heading">
-            <p class="eyebrow">Contact</p>
-            <h2>Reach us quickly on the day</h2>
+            <p class="eyebrow" id="contact-eyebrow">Contact</p>
+            <h2 id="contact-title">Reach us quickly on the day</h2>
           </div>
           <div class="card-grid">
             <article class="panel">
@@ -176,10 +91,39 @@
               </div>
             </article>
             <article class="panel">
-              <h3>Event notes</h3>
+              <h3 id="notes-title">Event notes</h3>
               <ul class="notes-list" id="event-notes"></ul>
             </article>
           </div>
+        </section>
+
+        <section class="section" id="schedule">
+          <div class="section-heading">
+            <p class="eyebrow" id="schedule-eyebrow">Schedule</p>
+            <h2 id="schedule-title">Plan your visit</h2>
+          </div>
+          <div class="timeline" id="schedule-list"></div>
+        </section>
+
+        <section class="section" id="watch">
+          <div class="section-heading">
+            <p class="eyebrow" id="watch-eyebrow">Livestream</p>
+            <h2 id="watch-title">Watch from wherever you are</h2>
+          </div>
+          <article class="panel panel-embed">
+            <p id="stream-copy"></p>
+            <div class="action-row">
+              <a class="button primary button-small" id="stream-link" href="#" target="_blank" rel="noreferrer">Open Livestream</a>
+            </div>
+            <div class="stream-placeholder" id="stream-placeholder"></div>
+            <iframe
+              id="stream-embed"
+              title="Livestream"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </article>
         </section>
       </main>
     </div>
