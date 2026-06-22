@@ -267,11 +267,16 @@ function renderSchedule(items, locale, timeZone, labels) {
 
 function renderStream(stream) {
   setText("stream-copy", stream.copy);
-  setText("stream-placeholder", stream.placeholder);
   const streamEmbed = document.getElementById("stream-embed");
-  const shouldShowEmbed = Boolean(stream.embedUrl) && !stream.embedUrl.includes("VIDEO_ID");
-  streamEmbed.src = shouldShowEmbed ? stream.embedUrl : "";
-  streamEmbed.classList.toggle("is-hidden", !shouldShowEmbed);
+  const streamLink = document.getElementById("stream-link");
+
+  if (streamLink) {
+    streamLink.href = stream.watchUrl || stream.embedUrl || "#";
+  }
+
+  if (streamEmbed) {
+    streamEmbed.src = stream.embedUrl || "";
+  }
 }
 
 function startCountdown(dateTime) {
@@ -375,9 +380,7 @@ function applySiteContent(data) {
   renderSchedule(scheduleItems, locale, timeZone, labels);
   renderStream({
     copy: pickLocalized(content.stream?.copy, language) || data.stream.copy,
-    placeholder:
-      pickLocalized(content.stream?.placeholder, language) ||
-      data.stream.placeholder,
+    watchUrl: data.stream.watchUrl,
     embedUrl: data.stream.embedUrl,
   });
   startCountdown(data.event.dateTime);

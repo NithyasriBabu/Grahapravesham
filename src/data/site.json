@@ -26,8 +26,8 @@
   },
   "stream": {
     "copy": "If you cannot join in person, you can watch the pooja and blessings here on the day of the function.",
-    "placeholder": "The livestream will appear here once it is ready.",
-    "embedUrl": "https://www.youtube.com/embed/VIDEO_ID"
+    "watchUrl": "https://www.youtube.com/watch?v=b65uPGw4Wcs",
+    "embedUrl": "https://www.youtube.com/embed/b65uPGw4Wcs?rel=0"
   },
   "contact": {
     "phone": "+11234567890",
@@ -85,8 +85,7 @@
         "parking": "தயவுசெய்து கிழக்கு பக்கச் சாலையில் வாகனங்களை நிறுத்தவும்; மூத்தோர் மற்றும் நெருக்கமான குடும்பத்தினர் வருகைக்கு டிரைவ்வேயை காலியாக வைத்திருக்கவும்."
       },
       "stream": {
-        "copy": "நேரில் கலந்து கொள்ள முடியாவிட்டால், நிகழும் நாளில் இங்கே பூஜை மற்றும் ஆசீர்வாதங்களை பார்க்கலாம்.",
-        "placeholder": "லைவ்ஸ்ட்ரீம் தயாரானதும் இங்கே தோன்றும்."
+        "copy": "நேரில் கலந்து கொள்ள முடியாவிட்டால், நிகழும் நாளில் இங்கே பூஜை மற்றும் ஆசீர்வாதங்களை பார்க்கலாம்."
       },
       "calendar": {
         "title": "கிரஹப்பிரவேசம்",

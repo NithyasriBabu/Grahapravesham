@@ -23,8 +23,6 @@
   --bg-start: #fff1d4;
   --bg-end: #f7d7a7;
   --text-on-accent: #fff;
-  --placeholder-bg: rgba(255, 240, 211, 0.72);
-  --placeholder-border: rgba(214, 79, 136, 0.34);
   --button-shadow: 0 8px 20px rgba(124, 52, 25, 0.18);
   --line: rgba(152, 45, 89, 0.16);
   --shadow: 0 24px 60px var(--accent-shadow);
@@ -514,18 +512,6 @@ iframe {
   font-weight: 700;
   color: var(--text-primary);
   white-space: pre-line;
-}
-
-.stream-placeholder {
-  min-height: 180px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 20px;
-  border-radius: 18px;
-  border: 1px dashed var(--placeholder-border);
-  background: var(--placeholder-bg);
-  color: var(--text-secondary);
 }
 
 .page-loading {
