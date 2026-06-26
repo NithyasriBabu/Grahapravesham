@@ -42,6 +42,8 @@ const uiCopy = {
       watch: "Watch",
     },
     labels: {
+      when: "When",
+      where: "Where",
       date: "Date:",
       time: "Time:",
       days: "Days",
@@ -49,11 +51,17 @@ const uiCopy = {
     sections: {
       scheduleEyebrow: "Schedule",
       scheduleTitle: "Plan your visit",
-      heroSchedule: "View Agenda",
-      heroWatch: "Watch Livestream",
-      heroContact: "Contact Host",
       watchEyebrow: "Livestream",
-      watchTitle: "Watch from wherever you are",
+      streamLink: "Open Livestream",
+    },
+    header: {
+      devotional: "Shri Karuppaiya Thunai & Shri Venkatesa Perumal Thunai",
+    },
+    family: {
+      and: "and",
+    },
+    contact: {
+      label: "Contact",
     },
   },
   ta: {
@@ -63,6 +71,8 @@ const uiCopy = {
       watch: "நேரலை",
     },
     labels: {
+      when: "எப்போது",
+      where: "எங்கே",
       date: "தேதி:",
       time: "நேரம்:",
       days: "நாட்கள்",
@@ -70,11 +80,17 @@ const uiCopy = {
     sections: {
       scheduleEyebrow: "நிகழ்ச்சி",
       scheduleTitle: "உங்கள் வருகையைத் திட்டமிடுங்கள்",
-      heroSchedule: "நிகழ்ச்சி திட்டம்",
-      heroWatch: "நேரலையைப் பார்க்கவும்",
-      heroContact: "தொடர்பு கொள்ளுங்கள்",
       watchEyebrow: "நேரலை",
-      watchTitle: "நீங்கள் எங்கிருந்தாலும் பார்க்கலாம்",
+      streamLink: "நேரலையைத் திறக்கவும்",
+    },
+    header: {
+      devotional: "ஸ்ரீ கருப்பையா துணை & ஸ்ரீ வெங்கடேச பெருமாள் துணை",
+    },
+    family: {
+      and: "மற்றும்",
+    },
+    contact: {
+      label: "தொடர்பு",
     },
   },
 };
@@ -151,6 +167,21 @@ function buildWebcalUrl(path) {
 function buildWhatsappLink(number, message) {
   const sanitized = number.replace(/[^\d]/g, "");
   return `https://wa.me/${sanitized}?text=${encodeURIComponent(message)}`;
+}
+
+function formatDisplayPhone(number) {
+  const digits = number.replace(/[^\d]/g, "");
+  const normalized = digits.length === 11 && digits.startsWith("1")
+    ? digits
+    : digits.length === 10
+      ? `1${digits}`
+      : digits;
+
+  if (normalized.length !== 11) {
+    return number;
+  }
+
+  return `+${normalized[0]} (${normalized.slice(1, 4)})-${normalized.slice(4, 7)}-${normalized.slice(7)}`;
 }
 
 function setText(id, value) {
@@ -311,37 +342,44 @@ function applySiteContent(data) {
     "brand-link",
     pickLocalized(content.brand, language) || sharedCopy.brand,
   );
-  setText("when-label", sharedCopy.when);
-  setText("where-label", sharedCopy.where);
+  setText("when-label", labels.when);
+  setText("where-label", labels.where);
   setText("days-label", labels.days);
   setText("calendar-summary", sharedCopy.addToCalendar);
   setText("directions-summary", sharedCopy.directions);
-  setText("contact-summary", uiCopy[language].sections.heroContact);
-  setText("hero-schedule-link", uiCopy[language].sections.heroSchedule);
-  setText("hero-watch-link", uiCopy[language].sections.heroWatch);
-  setText("stream-link", "Open Livestream");
-  setText("schedule-eyebrow", uiCopy[language].sections.scheduleEyebrow);
-  setText("schedule-title", uiCopy[language].sections.scheduleTitle);
+  setText("stream-link", uiCopy[language].sections.streamLink);
   setText("watch-eyebrow", uiCopy[language].sections.watchEyebrow);
-  setText("watch-title", uiCopy[language].sections.watchTitle);
+  setText("hero-header-line", uiCopy[language].header.devotional);
 
   setText(
     "event-title",
     pickLocalized(content.event?.title, language) || data.event.title,
   );
-  const dateLabel = labels.date;
-  const timeLabel = labels.time;
   const eventDate = formatEventDate(data.event.dateTime, locale, { dateStyle: "full" }, timeZone);
-  const eventTime = formatEventDate(data.event.dateTime, locale, { timeStyle: "short" }, timeZone);
-  const eventZone = getTimeZoneAbbreviation(data.event.dateTime, timeZone);
-  setText("event-datetime", `${dateLabel} ${eventDate}\n${timeLabel} ${eventTime}${eventZone ? ` ${eventZone}` : ""}`);
-  setText(
-    "event-subtitle",
-    pickLocalized(content.event?.subtitle, language) || data.event.subtitle,
+  const eventTimeRange =
+    pickLocalized(content.event?.timeRange, language) || data.event.timeRange;
+  setText("event-datetime", `${eventDate}\n${eventTimeRange}`);
+  const invite = content.event?.invite || data.event.invite;
+  setText("invite-line-1", invite?.line1 || "");
+  setText("invite-line-2", invite?.line2 || "");
+  setText("invite-line-3", invite?.line3 || "");
+  setText("invite-line-4", invite?.line4 || "");
+  setText("invite-line-5", invite?.line5 || "");
+  const parentLine = `${content.event?.family?.nithya?.parents || data.event.family.nithya.parents} ${uiCopy[language].family.and} ${content.event?.family?.naveen?.parents || data.event.family.naveen.parents}`;
+  setText("family-parents-inline", parentLine);
+  setText("contact-phone", `${uiCopy[language].contact.label}: ${formatDisplayPhone(data.contact.phone)}`);
+  setLink("contact-call-link", `tel:${data.contact.phone}`);
+  setLink(
+    "contact-whatsapp-link",
+    buildWhatsappLink(data.contact.whatsapp, data.contact.whatsappMessage),
   );
+  const venueName =
+    pickLocalized(content.venue?.name, language) || data.venue.name;
+  const venueAddress =
+    pickLocalized(content.venue?.address, language) || data.venue.address;
   setText(
     "event-location",
-    `${pickLocalized(content.venue?.name, language) || data.venue.name}\n${pickLocalized(content.venue?.address, language) || data.venue.address}`,
+    venueName ? `${venueName}\n${venueAddress}` : venueAddress,
   );
   setText(
     "banner-text",
@@ -359,6 +397,7 @@ function applySiteContent(data) {
     data.media.inviteImage.alt;
 
   setText("parking-inline", pickLocalized(content.venue?.parking, language) || data.venue.parking);
+  setText("meals-inline", pickLocalized(content.venue?.meals, language) || data.venue.meals);
 
   const languageButtons = document.querySelectorAll(".lang-btn");
   languageButtons.forEach((button) => {
@@ -367,17 +406,6 @@ function applySiteContent(data) {
     button.setAttribute("aria-pressed", String(active));
   });
 
-  const scheduleItems = data.schedule.map((item, index) => {
-    const translated = content.schedule?.[index] ?? {};
-    return {
-      dateTime: item.dateTime,
-      title: pickLocalized(translated.title, language) || item.title,
-      description:
-        pickLocalized(translated.description, language) || item.description,
-    };
-  });
-
-  renderSchedule(scheduleItems, locale, timeZone, labels);
   renderStream({
     copy: pickLocalized(content.stream?.copy, language) || data.stream.copy,
     watchUrl: data.stream.watchUrl,

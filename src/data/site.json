@@ -7,7 +7,24 @@
   },
   "event": {
     "title": "Nithyasri & Naveen Kumar's Grahapravesham",
-    "subtitle": "Please join us as we begin this new chapter with prayer, warmth, and your blessings.",
+    "invite": {
+      "line1": "With blessings from God & their parents,",
+      "line2": "Nithyasri & Naveen Kumar",
+      "line3": "graciously request your presence in their",
+      "line4": "Gruhapravesam Ceremony",
+      "line5": "as they begin their new chapter in their new house ."
+    },
+    "timeRange": "7:30 AM to 12:30 PM",
+    "family": {
+      "nithya": {
+        "parents": "Mr. Babu & Mrs. Sumathi",
+        "siblings": "[Sibling Name]"
+      },
+      "naveen": {
+        "parents": "Late Mr. Sankaran & Mrs. Vijayalakshmi",
+        "siblings": "[Sibling Name]"
+      }
+    },
     "dateTime": "2026-08-03T07:30:00-04:00",
     "timeZone": "America/New_York",
     "locale": "en-US",
@@ -17,9 +34,10 @@
     }
   },
   "venue": {
-    "name": "Sri Meenakshi",
-    "address": "130 Main Street, #E4, Norwalk, CT 06851",
+    "name": "",
+    "address": "130 Main Street, #E4\nNorwalk, CT 06851",
     "parking": "Guest parking on site is limited. Please use roadside parking or the nearby shopping complex.",
+    "meals": "Breakfast and lunch will be served.",
     "googleMapsUrl": "https://maps.app.goo.gl/eXeHiWPZSFXVEoEh6",
     "appleMapsUrl": "https://maps.apple.com/?address=130%20Main%20Street%2C%20%23E4%2C%20Norwalk%2C%20CT%2006851&ll=41.1238796541452,-73.4152970738778&q=Sri%20Meenakshi",
     "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d182.62937795439885!2d-73.4152970738778!3d41.1238796541452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1781578852204!5m2!1sen!2sus"
@@ -30,8 +48,8 @@
     "embedUrl": "https://www.youtube.com/embed/b65uPGw4Wcs?rel=0"
   },
   "contact": {
-    "phone": "+11234567890",
-    "whatsapp": "+11234567890",
+    "phone": "+17164086235",
+    "whatsapp": "+17164086235",
     "whatsappMessage": "Hello, I am reaching out about the Grahapravesham."
   },
   "calendar": {
@@ -77,12 +95,30 @@
       },
       "event": {
         "title": "நித்யஸ்ரீ & நவீன் குமாரின் கிரஹப்பிரவேசம்",
-        "subtitle": "பிரார்த்தனை, இனிமை, மற்றும் உங்கள் ஆசீர்வாதங்களுடன் இந்த புதிய அத்தியாயத்தைத் தொடங்க எங்களுடன் சேருங்கள்."
+        "invite": {
+          "line1": "இறைவனின் அருளும் பெற்றோரின் ஆசிகளும் உடன்,",
+          "line2": "நித்யஸ்ரீ & நவீன் குமார்",
+          "line3": "தங்களின் வருகையை அன்புடன் நாடுகின்றனர்",
+          "line4": "கிரஹப்பிரவேச விழா",
+          "line5": "புதிய இல்லத்தில் புதிய அத்தியாயத்தைத் தொடங்கும் இந்நாளில்."
+        },
+        "timeRange": "7:30 AM to 12:30 PM",
+        "family": {
+          "nithya": {
+            "parents": "திரு பாபு & திருமதி சுமதி",
+            "siblings": "[பெயர்]"
+          },
+          "naveen": {
+            "parents": "மறைந்த திரு சங்கரன் & திருமதி விஜயலட்சுமி",
+            "siblings": "[பெயர்]"
+          }
+        }
       },
       "venue": {
-        "name": "ஸ்ரீ மீனாட்சி",
-        "address": "130 Main Street, #E4, Norwalk, CT 06851",
-        "parking": "தயவுசெய்து கிழக்கு பக்கச் சாலையில் வாகனங்களை நிறுத்தவும்; மூத்தோர் மற்றும் நெருக்கமான குடும்பத்தினர் வருகைக்கு டிரைவ்வேயை காலியாக வைத்திருக்கவும்."
+        "name": "",
+        "address": "130 Main Street, #E4\nNorwalk, CT 06851",
+        "parking": "தயவுசெய்து கிழக்கு பக்கச் சாலையில் வாகனங்களை நிறுத்தவும்; மூத்தோர் மற்றும் நெருக்கமான குடும்பத்தினர் வருகைக்கு டிரைவ்வேயை காலியாக வைத்திருக்கவும்.",
+        "meals": "காலை உணவும் மதிய உணவும் வழங்கப்படும்."
       },
       "stream": {
         "copy": "நேரில் கலந்து கொள்ள முடியாவிட்டால், நிகழும் நாளில் இங்கே பூஜை மற்றும் ஆசீர்வாதங்களை பார்க்கலாம்."

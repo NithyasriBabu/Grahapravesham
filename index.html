@@ -8,6 +8,9 @@
       name="description"
       content="Grahapravesham invitation, schedule, livestream, and contact details."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Engagement&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -32,7 +35,6 @@
       <main id="app" class="page-loading" aria-busy="true">
         <section class="hero section" id="home">
           <article class="panel hero-panel">
-            <h1 id="event-title"></h1>
             <div class="hero-panel-grid">
               <div class="hero-panel-media">
                 <div class="invite-frame">
@@ -40,44 +42,66 @@
                 </div>
               </div>
               <div class="hero-panel-copy">
-                <p class="hero-subtitle" id="event-subtitle"></p>
-                <div class="action-row hero-actions">
-                  <a class="button primary" href="#schedule" id="hero-schedule-link">View Agenda</a>
-                  <a class="button secondary" href="#watch" id="hero-watch-link">Watch Livestream</a>
-                  <button class="button secondary chooser-trigger" id="contact-summary" type="button">Contact Host</button>
+                <div class="hero-copy-section hero-copy-header">
+                  <p class="hero-header-line" id="hero-header-line">Shri Karuppaiya Thunai & Shri Venkatesa Perumal Thunai</p>
                 </div>
-                <div class="hero-meta">
-                  <div class="meta-card">
-                    <span class="meta-label" id="when-label">When</span>
-                    <strong id="event-datetime"></strong>
-                    <button class="button secondary button-small chooser-trigger" id="calendar-summary" type="button">Add to Calendar</button>
+                <div class="hero-copy-bottom">
+                  <div class="hero-copy-section hero-copy-message">
+                    <p class="hero-invite-line hero-invite-line-small" id="invite-line-1"></p>
+                    <p class="hero-invite-line hero-invite-line-parents" id="family-parents-inline"></p>
+                    <p class="hero-invite-line hero-invite-line-strong" id="invite-line-2"></p>
+                    <p class="hero-invite-line hero-invite-line-small" id="invite-line-3"></p>
+                    <p class="hero-invite-line hero-invite-line-strong" id="invite-line-4"></p>
+                    <p class="hero-invite-line hero-invite-line-small" id="invite-line-5"></p>
                   </div>
-                  <div class="meta-card">
-                    <span class="meta-label" id="where-label">Where</span>
-                    <strong id="event-location"></strong>
-                    <button class="button secondary button-small chooser-trigger" id="directions-summary" type="button">Directions</button>
+                  <div class="hero-meta">
+                    <div class="meta-card meta-card-when">
+                      <div class="meta-card-section meta-card-title">
+                        <span class="meta-label" id="when-label">When</span>
+                      </div>
+                      <div class="meta-card-section meta-card-content">
+                        <strong id="event-datetime"></strong>
+                      </div>
+                      <div class="meta-card-section meta-card-action">
+                        <button class="button secondary button-small chooser-trigger" id="calendar-summary" type="button">Add to Calendar</button>
+                      </div>
+                    </div>
+                    <div class="meta-card meta-card-where">
+                      <div class="meta-card-section meta-card-title">
+                        <span class="meta-label" id="where-label">Where</span>
+                      </div>
+                      <div class="meta-card-section meta-card-content">
+                        <strong id="event-location"></strong>
+                      </div>
+                      <div class="meta-card-section meta-card-action">
+                        <button class="button secondary button-small chooser-trigger" id="directions-summary" type="button">Directions</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <p class="parking-inline" id="parking-inline"></p>
+                <div class="hero-copy-section hero-copy-details">
+                  <p class="parking-inline" id="parking-inline"></p>
+                  <p class="parking-inline" id="meals-inline"></p>
+                  <div class="hero-contact-row">
+                    <strong class="hero-contact-phone" id="contact-phone"></strong>
+                    <a class="button secondary button-icon" href="#" id="contact-call-link" aria-label="Call">
+                      <img src="./assets/call.png" alt="" aria-hidden="true" />
+                    </a>
+                    <a class="button secondary button-icon" href="#" id="contact-whatsapp-link" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+                      <img src="./assets/whatsapp_logo.png" alt="" aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
         </section>
 
-        <section class="section" id="schedule">
-          <div class="section-heading">
-            <p class="eyebrow" id="schedule-eyebrow">Schedule</p>
-            <h2 id="schedule-title">Plan your visit</h2>
-          </div>
-          <div class="timeline" id="schedule-list"></div>
-        </section>
-
         <section class="section" id="watch">
-          <div class="section-heading">
-            <p class="eyebrow" id="watch-eyebrow">Livestream</p>
-            <h2 id="watch-title">Watch from wherever you are</h2>
-          </div>
           <article class="panel panel-embed">
+            <div class="section-heading">
+              <p class="eyebrow" id="watch-eyebrow">Livestream</p>
+            </div>
             <p id="stream-copy"></p>
             <div class="action-row">
               <a class="button primary button-small" id="stream-link" href="https://www.youtube.com/watch?v=b65uPGw4Wcs" target="_blank" rel="noreferrer" translate="no">Open Livestream</a>

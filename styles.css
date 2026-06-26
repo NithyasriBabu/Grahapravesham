@@ -1,4 +1,6 @@
 :root {
+  --font-display: "Engagement", cursive;
+  --font-cursive: "Akaya Kanadaka", "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Lucida Calligraphy", cursive;
   --bg: #f8e0a8;
   --surface: rgba(255, 248, 239, 0.92);
   --surface-strong: #ffedc9;
@@ -44,7 +46,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-cursive);
   color: var(--text-primary);
   background:
     radial-gradient(circle at top left, var(--bg-top-left), transparent 24%),
@@ -90,7 +92,7 @@ a {
 .countdown-item small,
 .lang-btn,
 .banner-track p {
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: var(--font-cursive);
 }
 
 .brand {
@@ -130,7 +132,8 @@ a {
 }
 
 .section {
-  padding: 56px 0 0;
+  padding: 0;
+  margin: 28px 0;
 }
 
 .hero {
@@ -151,7 +154,92 @@ a {
 
 .hero-panel-copy {
   display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 16px;
+  align-self: start;
+}
+
+.hero-copy-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: 14px;
+  text-align: left;
+  width: 100%;
+}
+
+.hero-copy-header {
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-header-line {
+  margin: 0;
+  color: var(--ink);
+  text-align: center;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.hero-contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  align-self: stretch;
+  text-align: center;
+}
+
+.hero-contact-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0;
+  white-space: normal;
+  line-height: 1;
+  min-width: 0;
+}
+
+.hero-invite-line {
+  margin: 0;
+  color: var(--ink);
+  text-align: center;
+  width: 100%;
+}
+
+.hero-invite-line-small {
+  font-family: var(--font-cursive);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.hero-invite-line-strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.8vw, 1.95rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.05;
+  color: var(--accent-strong);
+}
+
+.hero-invite-line-parents {
+  color: var(--accent);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.hero-copy-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  width: 100%;
 }
 
 .hero-panel-media,
@@ -183,11 +271,17 @@ h1 {
   margin-bottom: 12px;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 0.95;
+  color: var(--ink);
 }
 
 h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 0;
+  color: var(--ink);
+}
+
+h3 {
+  color: var(--ink);
 }
 
 .hero-subtitle,
@@ -195,12 +289,40 @@ h2 {
 #stream-copy,
 #parking-instructions,
 #event-location {
-  color: var(--text-secondary);
+  color: var(--ink);
   line-height: 1.65;
 }
 
 .hero-actions {
-  margin-top: 4px;
+  margin-top: 0;
+}
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px !important;
+  min-width: 30px !important;
+  width: 30px !important;
+  height: 30px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  flex: 0 0 30px !important;
+  align-self: center;
+  line-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: var(--surface-plain);
+  border: 0 !important;
+}
+
+.button-icon img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin: 0;
+  flex: 0 0 auto;
 }
 
 #event-location {
@@ -215,6 +337,7 @@ h2 {
 #event-datetime {
   display: block;
   white-space: pre-line;
+  line-height: 1.65;
 }
 
 .hero-meta,
@@ -237,15 +360,40 @@ h2 {
 }
 
 .meta-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   height: 100%;
+  color: var(--ink);
+  gap: 10px;
+}
+
+.meta-card-section {
+  display: flex;
+  width: 100%;
+}
+
+.meta-card-title,
+.meta-card-content {
+  align-items: flex-start;
+}
+
+.meta-card-action {
+  align-items: flex-end;
+}
+
+.meta-card-content {
+  align-items: flex-start;
+}
+
+.meta-card-when .meta-card-action,
+.meta-card-where .meta-card-action {
+  justify-content: center;
 }
 
 .meta-label {
   display: block;
-  margin-bottom: 8px;
-  color: var(--text-secondary);
+  margin: 0;
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: var(--text-xsmall-size);
@@ -291,13 +439,13 @@ h2 {
 }
 
 .button.primary {
-  background: var(--accent);
-  color: var(--text-on-accent);
+  background: transparent;
+  color: var(--ink);
 }
 
 .button.secondary {
   background: transparent;
-  color: var(--accent-strong);
+  color: var(--ink);
 }
 
 .button-small {
@@ -377,14 +525,14 @@ h2 {
 }
 
 .countdown-float span {
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: var(--font-cursive);
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .countdown-float small {
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: var(--font-cursive);
   font-size: var(--text-xsmall-size);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -392,26 +540,26 @@ h2 {
 
 .parking-inline {
   margin: 18px 0 0;
-  color: var(--text-primary);
-  font-weight: 600;
+  color: var(--ink);
+  font-weight: 400;
   line-height: 1.65;
 }
 
 .hero-panel-media {
   overflow: hidden;
-  padding: 14px;
+  padding: 0;
+  align-self: start;
 }
 
 .invite-frame {
   overflow: hidden;
   padding: 0;
-  height: 100%;
 }
 
 .invite-frame img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 18px;
 }
 
@@ -433,7 +581,7 @@ h2 {
   margin: 0;
   padding: 10px 20px;
   white-space: nowrap;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: var(--font-cursive);
   font-weight: 700;
   font-size: var(--text-base-size);
   color: var(--text-primary);
@@ -468,6 +616,47 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.panel-embed .section-heading {
+  margin-bottom: 0;
+}
+
+.family-value {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+
+.hero-copy-details,
+.meta-card-parents {
+  width: 100%;
+}
+
+.hero-copy-details .parking-inline,
+.meta-card-parents .hero-subtitle {
+  margin-bottom: 0;
+}
+
+.hero-copy-details .action-row,
+.hero-copy-details .hero-meta,
+.hero-copy-details .parking-inline,
+.meta-card-parents .hero-subtitle,
+.meta-card-parents .family-value {
+  width: 100%;
+}
+
+.meta-card-parents .meta-card-copy {
+  align-items: flex-start;
+}
+
+.hero-copy-message {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  gap: 8px;
 }
 
 .panel-embed .action-row {
@@ -508,7 +697,7 @@ iframe {
 }
 
 .timeline-time {
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: var(--font-cursive);
   font-weight: 700;
   color: var(--text-primary);
   white-space: pre-line;
@@ -566,6 +755,7 @@ iframe {
 
   .hero-panel-copy {
     order: 2;
+    grid-template-rows: auto auto;
   }
 }
 
