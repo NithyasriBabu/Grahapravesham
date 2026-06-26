@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#f4eadc"/>
-  <rect x="36" y="36" width="728" height="528" rx="26" fill="#fffefb" stroke="#c08f64" stroke-width="5"/>
-  <text x="400" y="280" text-anchor="middle" fill="#8b4d28" font-family="Georgia, serif" font-size="50">Gallery Image 2</text>
-  <text x="400" y="335" text-anchor="middle" fill="#705547" font-family="Georgia, serif" font-size="24">Replace from site.json</text>
-</svg>
