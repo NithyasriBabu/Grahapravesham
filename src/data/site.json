@@ -8,24 +8,25 @@
   "event": {
     "title": "Nithyasri & Naveen Kumar's Grahapravesham",
     "invite": {
-      "line1": "With blessings from God & their parents,",
-      "line2": "Nithyasri & Naveen Kumar",
-      "line3": "graciously request your presence in their",
-      "line4": "Gruhapravesam Ceremony",
-      "line5": "as they begin their new chapter in their new house ."
+      "line1": "With the blessings of God and our beloved parents,",
+      "line2": "We,",
+      "line3": "Nithyasri & Naveen Kumar",
+      "line4": "Graciously request the honor of your presence in our",
+      "line5": "Gruhapravesam Ceremony",
+      "line6": "as we step into our new home and begin this beautiful new chapter. Please join us to celebrate and bless our new abode with breakfast and lunch served."
     },
-    "timeRange": "7:30 AM to 12:30 PM",
+    "timeRange": "7:00 AM to 12:30 PM",
     "family": {
       "nithya": {
         "parents": "Mr. Babu & Mrs. Sumathi",
         "siblings": "[Sibling Name]"
       },
       "naveen": {
-        "parents": "Late Mr. Sankaran & Mrs. Vijayalakshmi",
+        "parents": "Mr. Sankaran & Mrs. Vijayalakshmi",
         "siblings": "[Sibling Name]"
       }
     },
-    "dateTime": "2026-08-03T07:30:00-04:00",
+    "dateTime": "2026-08-03T07:00:00-04:00",
     "timeZone": "America/New_York",
     "locale": "en-US",
     "displayFormat": {
@@ -37,7 +38,7 @@
     "name": "",
     "address": "130 Main Street, #E4\nNorwalk, CT 06851",
     "parking": "Guest parking on site is limited. Please use roadside parking or the nearby shopping complex.",
-    "meals": "Breakfast and lunch will be served.",
+    "meals": "Please join us for breakfast and lunch.",
     "googleMapsUrl": "https://maps.app.goo.gl/eXeHiWPZSFXVEoEh6",
     "appleMapsUrl": "https://maps.apple.com/?address=130%20Main%20Street%2C%20%23E4%2C%20Norwalk%2C%20CT%2006851&ll=41.1238796541452,-73.4152970738778&q=Sri%20Meenakshi",
     "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d182.62937795439885!2d-73.4152970738778!3d41.1238796541452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1781578852204!5m2!1sen!2sus"
@@ -48,6 +49,7 @@
     "embedUrl": "https://www.youtube.com/embed/b65uPGw4Wcs?rel=0"
   },
   "contact": {
+    "Name": "Naveen Kumar Sankaran",
     "phone": "+17164086235",
     "whatsapp": "+17164086235",
     "whatsappMessage": "Hello, I am reaching out about the Grahapravesham."
@@ -56,7 +58,7 @@
     "uid": "grahapravesham@example.com",
     "stamp": "20260615T000000Z",
     "title": "Grahapravesham",
-    "start": "20260803T113000Z",
+    "start": "20260803T110000Z",
     "end": "20260803T153000Z",
     "details": "Please join us for our Grahapravesham celebration.",
     "location": "130 Main Street, #E4, Norwalk, CT 06851"
@@ -69,7 +71,7 @@
   },
   "schedule": [
     {
-      "dateTime": "2026-08-03T07:30:00-04:00",
+      "dateTime": "2026-08-03T07:00:00-04:00",
       "title": "Ganapathy Pooja",
       "description": "The morning begins with prayers and the first rituals at the entrance."
     },
@@ -96,20 +98,21 @@
       "event": {
         "title": "நித்யஸ்ரீ & நவீன் குமாரின் கிரஹப்பிரவேசம்",
         "invite": {
-          "line1": "இறைவனின் அருளும் பெற்றோரின் ஆசிகளும் உடன்,",
-          "line2": "நித்யஸ்ரீ & நவீன் குமார்",
-          "line3": "தங்களின் வருகையை அன்புடன் நாடுகின்றனர்",
-          "line4": "கிரஹப்பிரவேச விழா",
-          "line5": "புதிய இல்லத்தில் புதிய அத்தியாயத்தைத் தொடங்கும் இந்நாளில்."
+          "line1": "இறைவனின் திருவருளுடனும், பெற்றோர்",
+          "line2": "ஆகியோரின் ஆசியுடன்,",
+          "line3": "நித்யஸ்ரீயும் & நவீன் குமாரும்",
+          "line4": "எங்களது புதிய இல்லத்தில் காலடி எடுத்து வைக்கும் இந்த இனிய நாளில், நடைபெறும் எங்களது",
+          "line5": "கிரஹப்பிரவேசம்",
+          "line6": "நிகழ்ச்சியில், தாங்கள் தங்களது குடும்பத்தினருடன் வருகை தந்து, எங்களை வாழ்த்திச் சிறப்பிக்குமாறு அன்போடு அழைக்கிறோம். தவறாமல் வந்து காலை மற்றும் மதிய விருந்தில் கலந்து கொண்டு எங்களைச் சிறப்பிக்க வேண்டுகிறோம்."
         },
-        "timeRange": "7:30 AM to 12:30 PM",
+        "timeRange": "7:00 AM to 12:30 PM",
         "family": {
           "nithya": {
-            "parents": "திரு பாபு & திருமதி சுமதி",
+            "parents": "திரு. பாபு - திருமதி. சுமதி",
             "siblings": "[பெயர்]"
           },
           "naveen": {
-            "parents": "மறைந்த திரு சங்கரன் & திருமதி விஜயலட்சுமி",
+            "parents": "திரு. சங்கரன் - திருமதி. விஜயலட்சுமி",
             "siblings": "[பெயர்]"
           }
         }
@@ -118,10 +121,13 @@
         "name": "",
         "address": "130 Main Street, #E4\nNorwalk, CT 06851",
         "parking": "தயவுசெய்து கிழக்கு பக்கச் சாலையில் வாகனங்களை நிறுத்தவும்; மூத்தோர் மற்றும் நெருக்கமான குடும்பத்தினர் வருகைக்கு டிரைவ்வேயை காலியாக வைத்திருக்கவும்.",
-        "meals": "காலை உணவும் மதிய உணவும் வழங்கப்படும்."
+        "meals": "எங்களுடன் காலை மற்றும் மதிய உணவில் கலந்துகொள்ளுங்கள்."
       },
       "stream": {
         "copy": "நேரில் கலந்து கொள்ள முடியாவிட்டால், நிகழும் நாளில் இங்கே பூஜை மற்றும் ஆசீர்வாதங்களை பார்க்கலாம்."
+      },
+      "contact": {
+        "Name": "நவீன் குமார் சங்கரன்"
       },
       "calendar": {
         "title": "கிரஹப்பிரவேசம்",

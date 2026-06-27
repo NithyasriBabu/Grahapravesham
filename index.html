@@ -10,7 +10,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Engagement&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Hind+Madurai:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -24,6 +24,7 @@
           <div class="banner-track">
             <p id="banner-text"></p>
             <p id="banner-text-clone" aria-hidden="true"></p>
+            <p id="banner-text-clone-2" aria-hidden="true"></p>
           </div>
         </div>
         <div class="lang-switch" role="group" aria-label="Language selector">
@@ -45,43 +46,44 @@
                 <div class="hero-copy-section hero-copy-header">
                   <p class="hero-header-line" id="hero-header-line">Shri Karuppaiya Thunai & Shri Venkatesa Perumal Thunai</p>
                 </div>
-                <div class="hero-copy-bottom">
-                  <div class="hero-copy-section hero-copy-message">
-                    <p class="hero-invite-line hero-invite-line-small" id="invite-line-1"></p>
-                    <p class="hero-invite-line hero-invite-line-parents" id="family-parents-inline"></p>
-                    <p class="hero-invite-line hero-invite-line-strong" id="invite-line-2"></p>
-                    <p class="hero-invite-line hero-invite-line-small" id="invite-line-3"></p>
-                    <p class="hero-invite-line hero-invite-line-strong" id="invite-line-4"></p>
-                    <p class="hero-invite-line hero-invite-line-small" id="invite-line-5"></p>
-                  </div>
+                <div class="hero-copy-section hero-copy-message">
+                  <p class="hero-invite-line hero-invite-line-small" id="invite-line-1"></p>
+                  <p class="hero-invite-line hero-invite-line-parents" id="family-parents-inline"></p>
+                  <p class="hero-invite-line hero-invite-line-small" id="invite-line-2"></p>
+                  <p class="hero-invite-line hero-invite-line-strong" id="invite-line-3"></p>
+                  <p class="hero-invite-line hero-invite-line-small" id="invite-line-4"></p>
+                  <p class="hero-invite-line hero-invite-line-strong" id="invite-line-5"></p>
+                  <p class="hero-invite-line hero-invite-line-small" id="invite-line-6"></p>
+                </div>
+                <div class="hero-copy-section hero-copy-when-where">
                   <div class="hero-meta">
-                    <div class="meta-card meta-card-when">
-                      <div class="meta-card-section meta-card-title">
-                        <span class="meta-label" id="when-label">When</span>
+                    <div class="meta-card meta-card-combined">
+                      <div class="meta-combined-block">
+                        <div class="meta-card-section meta-card-title">
+                          <span class="meta-label" id="when-label">When</span>
+                        </div>
+                        <div class="meta-card-section meta-card-content">
+                          <strong id="event-datetime"></strong>
+                        </div>
+                        <div class="meta-card-section meta-card-action">
+                          <button class="button secondary button-small chooser-trigger" id="calendar-summary" type="button">Add to Calendar</button>
+                        </div>
                       </div>
-                      <div class="meta-card-section meta-card-content">
-                        <strong id="event-datetime"></strong>
-                      </div>
-                      <div class="meta-card-section meta-card-action">
-                        <button class="button secondary button-small chooser-trigger" id="calendar-summary" type="button">Add to Calendar</button>
-                      </div>
-                    </div>
-                    <div class="meta-card meta-card-where">
-                      <div class="meta-card-section meta-card-title">
-                        <span class="meta-label" id="where-label">Where</span>
-                      </div>
-                      <div class="meta-card-section meta-card-content">
-                        <strong id="event-location"></strong>
-                      </div>
-                      <div class="meta-card-section meta-card-action">
-                        <button class="button secondary button-small chooser-trigger" id="directions-summary" type="button">Directions</button>
+                      <div class="meta-combined-block">
+                        <div class="meta-card-section meta-card-title">
+                          <span class="meta-label" id="where-label">Where</span>
+                        </div>
+                        <div class="meta-card-section meta-card-content">
+                          <strong id="event-location"></strong>
+                        </div>
+                        <div class="meta-card-section meta-card-action">
+                          <button class="button secondary button-small chooser-trigger" id="directions-summary" type="button">Directions</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="hero-copy-section hero-copy-details">
-                  <p class="parking-inline" id="parking-inline"></p>
-                  <p class="parking-inline" id="meals-inline"></p>
                   <div class="hero-contact-row">
                     <strong class="hero-contact-phone" id="contact-phone"></strong>
                     <a class="button secondary button-icon" href="#" id="contact-call-link" aria-label="Call">

@@ -61,7 +61,7 @@ const uiCopy = {
       and: "and",
     },
     contact: {
-      label: "Contact",
+      prefix: "For any queries, contact:",
     },
   },
   ta: {
@@ -90,7 +90,7 @@ const uiCopy = {
       and: "மற்றும்",
     },
     contact: {
-      label: "தொடர்பு",
+      prefix: "ஏதேனும் சந்தேகங்களுக்கு தொடர்புக்கு:",
     },
   },
 };
@@ -165,11 +165,17 @@ function buildWebcalUrl(path) {
 }
 
 function buildWhatsappLink(number, message) {
+  if (!number) {
+    return "#";
+  }
   const sanitized = number.replace(/[^\d]/g, "");
   return `https://wa.me/${sanitized}?text=${encodeURIComponent(message)}`;
 }
 
 function formatDisplayPhone(number) {
+  if (!number) {
+    return "";
+  }
   const digits = number.replace(/[^\d]/g, "");
   const normalized = digits.length === 11 && digits.startsWith("1")
     ? digits
@@ -365,14 +371,33 @@ function applySiteContent(data) {
   setText("invite-line-3", invite?.line3 || "");
   setText("invite-line-4", invite?.line4 || "");
   setText("invite-line-5", invite?.line5 || "");
+  setText("invite-line-6", invite?.line6 || "");
   const parentLine = `${content.event?.family?.nithya?.parents || data.event.family.nithya.parents} ${uiCopy[language].family.and} ${content.event?.family?.naveen?.parents || data.event.family.naveen.parents}`;
   setText("family-parents-inline", parentLine);
-  setText("contact-phone", `${uiCopy[language].contact.label}: ${formatDisplayPhone(data.contact.phone)}`);
-  setLink("contact-call-link", `tel:${data.contact.phone}`);
-  setLink(
-    "contact-whatsapp-link",
-    buildWhatsappLink(data.contact.whatsapp, data.contact.whatsappMessage),
+  const contactName =
+    content.contact?.Name ||
+    content.contact?.name ||
+    data.contact?.Name ||
+    data.contact?.name ||
+    "";
+  const contactPhone = formatDisplayPhone(data.contact?.phone);
+  const contactDetails = [contactName, contactPhone].filter(Boolean).join(", ");
+  setText(
+    "contact-phone",
+    [uiCopy[language].contact.prefix, contactDetails].filter(Boolean).join(" "),
   );
+  if (data.contact?.phone) {
+    setLink("contact-call-link", `tel:${data.contact.phone}`);
+  }
+  if (data.contact?.whatsapp) {
+    setLink(
+      "contact-whatsapp-link",
+      buildWhatsappLink(
+        data.contact.whatsapp,
+        data.contact.whatsappMessage || "Hello",
+      ),
+    );
+  }
   const venueName =
     pickLocalized(content.venue?.name, language) || data.venue.name;
   const venueAddress =
@@ -389,6 +414,10 @@ function applySiteContent(data) {
     "banner-text-clone",
     pickLocalized(content.banner?.text, language) || data.banner.text,
   );
+  setText(
+    "banner-text-clone-2",
+    pickLocalized(content.banner?.text, language) || data.banner.text,
+  );
 
   const inviteImage = document.getElementById("invite-image");
   inviteImage.src = data.media.inviteImage.src;
@@ -396,7 +425,6 @@ function applySiteContent(data) {
     pickLocalized(content.media?.inviteImageAlt, language) ||
     data.media.inviteImage.alt;
 
-  setText("parking-inline", pickLocalized(content.venue?.parking, language) || data.venue.parking);
   setText("meals-inline", pickLocalized(content.venue?.meals, language) || data.venue.meals);
 
   const languageButtons = document.querySelectorAll(".lang-btn");
